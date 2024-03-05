@@ -5,12 +5,16 @@ function App() {
   const [randomJoke, setRandomJoke] = useState({});
 
   const fetchJoke = () => {
-    fetch("https://v2.jokeapi.dev/joke/Any?type=single")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setRandomJoke(data);
-      });
+    try {
+      fetch("https://v2.jokeapi.dev/joke/Any?type=single")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setRandomJoke(data);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
