@@ -12,13 +12,13 @@ function App() {
       fetch(api)
         .then((res) => res.json())
         .then((data) => {
+          setCity("");
           setWheatherData(data);
           console.log(data);
         });
     } catch (error) {
       console.log(error);
     }
-    setCity("");
   };
 
   return (
