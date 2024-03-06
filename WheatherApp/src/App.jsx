@@ -19,6 +19,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
+    setCity("");
   };
 
   return (
@@ -26,10 +27,16 @@ function App() {
       <div>
         <div>
           <input
+            placeholder="Enter City Name"
             type="text"
             value={city}
             onChange={(e) => {
               setCity(e.target.value);
+            }}
+            style={{
+              padding: "10px",
+              borderRadius: "10px",
+              border: "1px solid red",
             }}
           />
         </div>
@@ -54,6 +61,7 @@ function App() {
             ) : (
               <p>wheatherData.weather[0].icon</p>
             )}
+            <p>{wheatherData.weather[0].main}</p>
           </div>
         ) : (
           <></>
