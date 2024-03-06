@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 
 function App() {
   let [city, setCity] = useState("");
@@ -24,7 +23,12 @@ function App() {
 
   return (
     <>
-      <div>
+      <div
+        style={{
+          textAlign: "center",
+          margin: "150px",
+        }}
+      >
         <div>
           <input
             placeholder="Enter City Name"
