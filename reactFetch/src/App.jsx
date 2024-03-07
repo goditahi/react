@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [fact, setFact] = useState({});
+  const [fact, setFact] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://catfact.ninja/fact")
+    fetch("https://api.jikan.moe/v4/manga")
       .then((response) => response.json())
       .then((data) => {
-        setFact(data);
+        console.log(data.data[0].title);
+        setFact(data.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -28,7 +29,12 @@ function App() {
   return (
     <>
       <h1>Cat Fact</h1>
-      {fact.fact}
+      <ul>
+        {fact.map((manga) => (
+          <img src={manga.images.jpg.image_url} alt="" />
+        ))}
+        <br />
+      </ul>
     </>
   );
 }
